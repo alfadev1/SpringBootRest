@@ -1,4 +1,4 @@
-package com.alfadev1APIREST.SpringBootRest;
+package com.alfadev1.SpringBootRest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
