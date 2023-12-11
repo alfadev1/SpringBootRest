@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,8 +21,9 @@ public class MakerController {
     private IMakerService makerService;
 
 
-    @GetMapping("/findById/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id) {
+
+    @GetMapping("/findMakerById/{id}")
+    public ResponseEntity<?> findMakerById(@PathVariable Long id) {
         Optional<Maker> makerOptional = makerService.findMakerById(id);
         if (makerOptional.isPresent()) {
             Maker maker =  makerOptional.get();
@@ -34,6 +36,19 @@ public class MakerController {
             return ResponseEntity.ok(makerInDTO);
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/findAllMakers")
+    public ResponseEntity<?> findAllMakers() {
+        List<MakerInDTO> makerInDTOList = makerService.findAllMakers()
+                .stream()
+                .map(maker -> MakerInDTO.builder()
+                        .id(maker.getId())
+                        .name(maker.getName())
+                        .productList(maker.getProductList())
+                        .build())
+                .toList();
+        return ResponseEntity.ok(makerInDTOList);
     }
 
 

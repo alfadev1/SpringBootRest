@@ -35,6 +35,6 @@ public class MakerService implements IMakerService {
 
     @Override
     public List<Maker> findAllMakers() {
-        return findAllMakers();
+        return makerDAO.findAllMakers();
     }
 }
