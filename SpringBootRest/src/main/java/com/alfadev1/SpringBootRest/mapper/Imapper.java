@@ -1,3 +1,4 @@
+/*
 package com.alfadev1.SpringBootRest.mapper;
 
 import org.springframework.stereotype.Component;
@@ -6,3 +7,4 @@ import org.springframework.stereotype.Component;
 public interface Imapper <I, O>{
     public O map(I in);
 }
+*/

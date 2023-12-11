@@ -1,5 +1,6 @@
 package com.alfadev1.SpringBootRest.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,5 +26,6 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "idMaker", nullable = false)
+    @JsonIgnore
     private Maker maker;
 }

@@ -1,3 +1,4 @@
+/*
 package com.alfadev1.SpringBootRest.mapper;
 
 import com.alfadev1.SpringBootRest.persistence.entity.Product;
@@ -16,3 +17,4 @@ public class ProductInDTOToProduct implements Imapper<ProductInDTO, Product> {
         return product;
     }
 }
+*/

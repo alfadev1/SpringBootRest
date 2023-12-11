@@ -1,4 +1,4 @@
-package com.alfadev1.SpringBootRest.mapper;
+/*package com.alfadev1.SpringBootRest.mapper;
 
 import com.alfadev1.SpringBootRest.persistence.entity.Maker;
 import com.alfadev1.SpringBootRest.persistence.entity.Product;
@@ -20,4 +20,4 @@ public class MakerInDTOToMaker implements Imapper <MakerInDTO, Maker> {
     }
 
 
-}
+}*/

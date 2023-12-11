@@ -14,8 +14,5 @@ public class ProductController {
 
     private ProductService productService;
 
-    @PostMapping
-    public Product saveProduct(@RequestBody ProductInDTO productInDTO) {
-        return this.productService.saveProduct(productInDTO);
-    }
+
 }

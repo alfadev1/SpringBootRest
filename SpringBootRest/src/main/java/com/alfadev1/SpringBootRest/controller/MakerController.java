@@ -1,31 +1,40 @@
 package com.alfadev1.SpringBootRest.controller;
 
-import com.alfadev1.SpringBootRest.mapper.MakerInDTOToMaker;
+
 import com.alfadev1.SpringBootRest.persistence.entity.Maker;
-import com.alfadev1.SpringBootRest.service.MakerService;
+import com.alfadev1.SpringBootRest.service.IMakerService;
+
 import com.alfadev1.SpringBootRest.service.dto.MakerInDTO;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/makers")
+@RequestMapping("/api/makers")
 
 public class MakerController {
-    private MakerService makerService;
-    private MakerInDTOToMaker mapper;
+    @Autowired
+    private IMakerService makerService;
 
-    public MakerController(MakerService makerService, MakerInDTOToMaker mapper) {
-        this.makerService = makerService;
-        this.mapper = mapper;
+
+    @GetMapping("/findById/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id) {
+        Optional<Maker> makerOptional = makerService.findMakerById(id);
+        if (makerOptional.isPresent()) {
+            Maker maker =  makerOptional.get();
+
+            MakerInDTO makerInDTO = MakerInDTO.builder()
+                    .id(maker.getId())
+                    .name(maker.getName())
+                    .productList(maker.getProductList())
+                    .build();
+            return ResponseEntity.ok(makerInDTO);
+        }
+        return ResponseEntity.notFound().build();
     }
 
-    @PostMapping
-    public Maker saveMaker(@RequestBody MakerInDTO makerInDTO) {
-        return this.makerService.saveMaker(makerInDTO);
-    }
+
 }

@@ -1,40 +1,39 @@
-package com.alfadev1.SpringBootRest.service;
-
+package com.alfadev1.SpringBootRest.persistence.makerDAO.implementation;
 
 import com.alfadev1.SpringBootRest.persistence.entity.Maker;
 import com.alfadev1.SpringBootRest.persistence.makerDAO.IMakerDAO;
-
+import com.alfadev1.SpringBootRest.persistence.repository.MakerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class MakerService implements IMakerService {
+@Component
+
+public class MakerDAOImpl implements IMakerDAO {
 
     @Autowired
-    private IMakerDAO makerDAO;
-
+    private MakerRepository makerRepository;
 
     @Override
     public void saveMaker(Maker maker) {
-        makerDAO.saveMaker(maker);
+        makerRepository.save(maker);
+
     }
 
     @Override
     public void deleteMakerByID(Long id) {
-        makerDAO.deleteMakerByID(id);
-
+        makerRepository.deleteById(id);
     }
 
     @Override
     public Optional<Maker> findMakerById(Long id) {
-        return makerDAO.findMakerById(id);
+        return makerRepository.findById(id);
     }
 
     @Override
     public List<Maker> findAllMakers() {
-        return findAllMakers();
+        return (List<Maker>) makerRepository.findAll();
     }
 }
