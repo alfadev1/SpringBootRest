@@ -1,7 +1,7 @@
 package com.alfadev1.SpringBootRest.service;
 
 
-import com.alfadev1.SpringBootRest.persistence.entity.Maker;
+import com.alfadev1.SpringBootRest.entity.Maker;
 import com.alfadev1.SpringBootRest.persistence.makerDAO.IMakerDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;

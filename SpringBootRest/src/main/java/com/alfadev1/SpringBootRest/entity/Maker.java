@@ -1,4 +1,4 @@
-package com.alfadev1.SpringBootRest.persistence.entity;
+package com.alfadev1.SpringBootRest.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -7,25 +7,23 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
 @Data
 @Builder
-@Table
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
-
+@Entity
+@Table
+public class Maker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idProduct")
+    @Column(name = "idMaker")
     private Long id;
     private String name;
-    private BigDecimal price;
-
-    @ManyToOne
-    @JoinColumn(name = "idMaker", nullable = false)
+    @Builder.Default
+    @OneToMany(mappedBy = "maker", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JsonIgnore
-    private Maker maker;
+    private List<Product> productList = new ArrayList<>();
 }

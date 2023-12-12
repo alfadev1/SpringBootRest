@@ -1,6 +1,6 @@
-package com.alfadev1.SpringBootRest.service.dto;
+package com.alfadev1.SpringBootRest.persistence.dto;
 
-import com.alfadev1.SpringBootRest.persistence.entity.Maker;
+import com.alfadev1.SpringBootRest.entity.Maker;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,7 +1,7 @@
 package com.alfadev1.SpringBootRest.service;
 
 
-import com.alfadev1.SpringBootRest.persistence.entity.Product;
+import com.alfadev1.SpringBootRest.entity.Product;
 import com.alfadev1.SpringBootRest.persistence.makerDAO.IProductDAO;
 
 

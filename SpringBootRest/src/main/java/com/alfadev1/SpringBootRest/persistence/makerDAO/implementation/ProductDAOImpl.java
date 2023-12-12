@@ -1,6 +1,6 @@
 package com.alfadev1.SpringBootRest.persistence.makerDAO.implementation;
 
-import com.alfadev1.SpringBootRest.persistence.entity.Product;
+import com.alfadev1.SpringBootRest.entity.Product;
 import com.alfadev1.SpringBootRest.persistence.makerDAO.IProductDAO;
 import com.alfadev1.SpringBootRest.persistence.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;

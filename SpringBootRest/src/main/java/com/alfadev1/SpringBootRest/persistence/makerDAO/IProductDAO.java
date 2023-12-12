@@ -1,6 +1,6 @@
 package com.alfadev1.SpringBootRest.persistence.makerDAO;
 
-import com.alfadev1.SpringBootRest.persistence.entity.Product;
+import com.alfadev1.SpringBootRest.entity.Product;
 
 import java.math.BigDecimal;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.alfadev1.SpringBootRest.persistence.makerDAO;
 
-import com.alfadev1.SpringBootRest.persistence.entity.Maker;
+import com.alfadev1.SpringBootRest.entity.Maker;
 
 import java.util.List;
 import java.util.Optional;
